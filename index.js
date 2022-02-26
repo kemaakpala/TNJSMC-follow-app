@@ -9,7 +9,7 @@ var StringDecoder = require('string_decoder').StringDecoder;
 // The server should respond to all requests with a string
 var server = http.createServer(function (req, res) {
   // 1. Get the url and parse it
-  var parsedUrl = url.parse(req.url, true);
+  var parsedUrl = url.parse(req.url, true); // setting the second parameter to true allows querystring to be returned as an object instead of an undecoded string.
 
   // 2. Get the path from the url
   var path = parsedUrl.pathname;
@@ -39,7 +39,7 @@ var server = http.createServer(function (req, res) {
 
     // 8. Log the request path
     console.log('Request recieved with these payload: ', buffer);
-    console.log('path:>', path,'trimmedPath:>', trimmedPath);
+    console.log('queryStringObject:>', queryStringObject);
   })
 
 });
