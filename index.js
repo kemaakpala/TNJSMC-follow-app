@@ -13,7 +13,7 @@ var server = http.createServer(function (req, res) {
 
   // 2. Get the path from the url
   var path = parsedUrl.pathname;
-  var trimmedPath = path.replace(/^\/+|\/+$/g, '')
+  var trimmedPath = path.replace(/^\/+|\/+$/g, ''); // removes the 1st and last "/" but not the middle slash 
 
   // 3. Get the query string as an object
   var queryStringObject = parsedUrl.query;
@@ -39,6 +39,7 @@ var server = http.createServer(function (req, res) {
 
     // 8. Log the request path
     console.log('Request recieved with these payload: ', buffer);
+    console.log('path:>', path,'trimmedPath:>', trimmedPath);
   })
 
 });
