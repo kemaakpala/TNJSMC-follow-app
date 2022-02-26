@@ -1,7 +1,6 @@
 /** Primary file for the API */
 
 // Dependencies
-
 var http = require('http');
 var https = require('https');
 var url = require('url');
@@ -113,14 +112,14 @@ var unifiedServer = function (req, res) {
 var handlers = {}
 
 /**
- * @description Sample handler: this function takes in the data object and a callback function that'll route the request
+ * @description Ping handler: this function takes in the data object and a callback function that'll route the request
  * to the specified request handler in the router.
  * @Param {Object} data - the data to send to the handler
  * @Param {Function} callback - the callback function
 */
-handlers.sample = function (data, callback) {
-  // callback a http status code, and a payload object
-  callback(406, { 'name': 'sample handler' })
+handlers.ping = function (data, callback) {
+  // callback a http status code
+  callback(200)
 };
 
 // not found handler
@@ -130,5 +129,5 @@ handlers.notFound = function (data, callback) {
 
 // Define a request router
 var router = {
-  'sample': handlers.sample
+  'ping': handlers.ping
 };
